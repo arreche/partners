@@ -1,5 +1,7 @@
 # Partners
 
+[![Circle CI](https://circleci.com/gh/arreche/partners.svg?style=svg)](https://circleci.com/gh/arreche/partners)
+
 A contact searcher app.
 
 ### Usage
