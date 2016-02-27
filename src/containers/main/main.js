@@ -9,9 +9,9 @@ import style from './style.css';
 
 
 export default class Main extends Component {
-    static contextTypes = {
-        router: React.PropTypes.object.isRequired
-    };
+    // static contextTypes = {
+    //     router: React.PropTypes.object.isRequired
+    // };
 
     constructor(props) {
         super(props);
