@@ -4,21 +4,19 @@ import expect from 'expect';
 
 import Main from '../src/containers/main/main';
 import Toolbar from '../src/components/toolbar/toolbar'
+import Contacts from '../src/containers/contacts/contacts';
 
 
 describe('Main Component', () => {
 
-    it ('Main contains Toolbar',  () => {
-        const handler = () => {};
+    it ('Contains Toolbar Component',  () => {
         const vdom = shallow(<Main />);
+        expect(vdom.find(Toolbar).length).toBe(1);
+    })
 
-        expect(true).toBe(true);
-        // expect(vdom.contains(
-        //     <Toolbar
-        //         onSearch={handler}
-        //         onEdit={handler}
-        //         onNew={handler}/>)
-        //     ).toBe(true);
+    it ('Containts Contacts Container', () => {
+        const vdom = shallow(<Main />);
+        expect(vdom.find(Contacts).length).toBe(1);
     })
 
 })
