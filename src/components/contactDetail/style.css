@@ -1,0 +1,22 @@
+.contactDetail {
+    display: flex;
+    flex-direction: row;
+}
+
+.photo {
+    margin-right: 1em;
+}
+
+.detail {
+    flex: 1;
+    text-align: left;
+}
+
+.name {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.contactInfo {
+    margin-top: 0.5em;
+}

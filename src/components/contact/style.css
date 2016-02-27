@@ -1,0 +1,14 @@
+.contact {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid lightgray;
+}
+
+.thumb {
+    margin-left: 1em;
+}
+
+.title {
+    flex: 1;
+    padding: 2em;
+}
