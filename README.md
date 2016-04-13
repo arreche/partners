@@ -1,5 +1,7 @@
 # Partners
 
+[![Dependency Status](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516)
+
 A contact searcher app.
 
 ### Usage
