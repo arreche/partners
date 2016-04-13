@@ -1,5 +1,7 @@
 # Partners
 
+[![Join the chat at https://gitter.im/arreche/partners](https://badges.gitter.im/arreche/partners.svg)](https://gitter.im/arreche/partners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A contact searcher app.
 
 ### Usage
