@@ -1,6 +1,6 @@
 # Partners
 
-[![Dependency Status](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516)
+[![Dependency Status](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ba61652a29ed0034380516) [![Circle CI](https://circleci.com/gh/arreche/partners.svg?style=svg)](https://circleci.com/gh/arreche/partners)
 
 A contact searcher app.
 
