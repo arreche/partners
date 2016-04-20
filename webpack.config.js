@@ -18,11 +18,11 @@ module.exports = {
   ],
   module: {
     loaders: [
-        {
-          test: /\.js$/,
-          loaders: ['react-hot', 'babel'],
-          include: path.join(__dirname, 'src'),
-          exclude: [/bower_components/, /node_modules/]
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        include: path.join(__dirname, 'src'),
+        exclude: [/bower_components/, /node_modules/]
       },
       {
         test: /\.css$/,

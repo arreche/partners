@@ -1,22 +1,26 @@
-import React from 'react';
-
+import React from 'react'
 import style from './style.css'
 
 const ContactProfile = (props) => {
-    return (
-        <div className={style.contactDetail}>
-            <div className={style.photo}>
-                <img src={props.contact.picture.medium} />
-            </div>
-            <div className={style.detail}>
-                <div className={style.name}>{ props.contact.name.first }</div>
-                <div className={style.contactInfo}>
-                    <div>{ props.contact.phone }</div>
-                    <div>{ props.contact.email }</div>
-                </div>
-            </div>
+  const { contact } = props
+  return (
+    <div className={style.contactDetail}>
+      <div className={style.photo}>
+        <img src={contact.picture.medium} />
+      </div>
+      <div className={style.detail}>
+        <div className={style.name}>{contact.name.first}</div>
+        <div className={style.contactInfo}>
+          <div>{contact.phone}</div>
+          <div>{contact.email}</div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
-export default ContactProfile;
+ContactProfile.propTypes = {
+  contact: React.PropTypes.object.isRequired
+}
+
+export default ContactProfile

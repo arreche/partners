@@ -1,18 +1,26 @@
 .main {
-    display: flex;
+  border: 3px solid red;
 }
 
 .mainPanel {
-    border: 2px solid blue;
-    display: flex;
-    padding: 1em;
+  border: 3px solid yellow;
+  display: flex;
+  margin: 5px;
+}
+
+.toolbar {
+  border: 3px solid orange;
+  margin: 5px;
 }
 
 .navPanel {
-    flex-grow: 1
+  border: 3px solid green;
+  margin: 5px;
+  flex-grow: 1
 }
 
 .contentPanel {
-    flex-grow: 2;
-    padding-left: 2em;    
+  border: 3px solid violet;
+  margin: 5px;
+  flex-grow: 2;
 }

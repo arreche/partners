@@ -13,10 +13,13 @@ npm test                      # Run tests
 npm test:watch                # Run test and watch files for changes              
 ```
 
-### Dependencies
+### Stack
 
 * React
+* Ract-router
+* Redux
 * Webpack
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-* [babel-loader](https://github.com/babel/babel-loader)
-* [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+* Babel
+
+### References
+- [Redux](https://github.com/reactjs/redux/blob/master/docs/basics/README.md)
