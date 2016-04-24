@@ -5,8 +5,12 @@ const initialState = {
 }
 
 export default function update (state = initialState, action) {
-  if (action.type === FETCH_CONTACTS) {
-    return { contacts: action.contacts }
+  switch(action.type) {
+    case FETCH_CONTACTS:
+      return Object.assign({}, state, {
+        contacts: action.contacts
+      })
+    default:
+      return state
   }
-  return state
 }
