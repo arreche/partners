@@ -27,7 +27,7 @@ class Main extends Component {
         <div className={style.mainPanel}>
           <div className={style.navPanel}>
             <List contacts={contacts}
-              onSelect={this.onSelect.bind(this)} />
+              onSelect={this.onSelect} />
           </div>
 
           <div className={style.contentPanel}>

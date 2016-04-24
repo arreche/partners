@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
   const contact = state.contacts.contacts.filter((contact) => {
     return parseInt(contact.id) === parseInt(ownProps.params.id)
   })
-  if(contact.length === 1) {
+  if (contact.length === 1) {
     return { contact: contact[0] }
   }
   return state
