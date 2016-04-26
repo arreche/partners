@@ -3,7 +3,7 @@ import reducer from '../../src/reducers/contacts'
 import mockContacts from '../../src/stores/mockContacts'
 import expect from 'expect'
 
-describe('Ccontacts reducer', () => {
+describe('Contacts reducer', () => {
   it('should return the initial state', () => {
     expect(
       reducer(undefined, {})
