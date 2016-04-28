@@ -1,72 +1,76 @@
-import  React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import React, { Component } from 'react'
+import { hashHistory } from 'react-router'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { fetchContacts } from '../../actions'
+import { List } from '../../containers'
+import { Toolbar } from '../../components'
+import style from './style.css'
 
-import Toolbar from '../../components/toolbar/toolbar';
-import Contacts from '../../containers/contacts/contacts';
-import contacsStore from '../../stores/contactsStore';
+class Main extends Component {
 
-import style from './style.css';
+  componentDidMount () {
+    this.props.fetchContacts()
+  }
 
+  render () {
+    const { contacts } = this.props
 
-export default class Main extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = { contacts: [], selectedContactId: 0 };
-    }
+    return (
+      <div className={style.main}>
+        <div className={style.toolbar}>
+          <Toolbar onSearch={this.onSearch}
+            onEdit={this.onEdit}
+            onNew={this.onNew} />
+        </div>
 
-    componentDidMount() {
-        contacsStore.loadContacts().then((contacts) => {
-            if (contacts.length > 0) {
-                this.setState({ contacts: contacts , selectedContactId : contacts[0].id });
-                hashHistory.push('/contacts/' + contacts[0].id);
-            }
-        })
-    }
+        <div className={style.mainPanel}>
+          <div className={style.navPanel}>
+            <List contacts={contacts}
+              onSelect={this.onSelect} />
+          </div>
 
-    render() {
-        const { contacts, currentContact } = this.state;
+          <div className={style.contentPanel}>
+            {this.props.children}
+          </div>
+        </div>
 
-        return (
-            <div>
-                <div className={style.toolbar}>
-                    <Toolbar onSearch={this.onSearch}
-                             onEdit={this.onEdit}
-                             onNew={this.onNew}>
-                    </Toolbar>
-                </div>
+      </div>
+    )
+  }
 
-                <div className={style.mainPanel}>
-                    <div className="{style.navPanel}">
-                        <Contacts contacts={contacts} onSelect={this.onSelect.bind(this)}>
-                        </Contacts>
-                    </div>
+  onSearch () {
 
-                    <div className={style.contentPanel}>
-                        { this.props.children }
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  }
 
-    onSearch(text) {
-        console.log('search...' + text);
-    };
+  onEdit () {
 
-    onEdit() {
-        console.log('edit...');
-    };
+  }
 
-    onSelect(contactId) {
-        this.setState({
-            selectedContactId : contactId
-        });
-        hashHistory.push('/contacts/' + contactId);
-    }
+  onSelect (id) {
+    hashHistory.push('/contacts/' + id)
+  }
 
-    onNew() {
-        console.log('new...');
-    };
+  onNew () {
+
+  }
 
 }
+
+Main.propTypes = {
+  contacts: React.PropTypes.array.isRequired,
+  children: React.PropTypes.object.isRequired,
+  fetchContacts: React.PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    contacts: state.contacts.contacts
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({ fetchContacts }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
