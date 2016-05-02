@@ -23,7 +23,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['react-hot', 'babel', 'eslint-loader'],
         include: path.join(__dirname, 'src'),
         exclude: [/bower_components/, /node_modules/]
       },
