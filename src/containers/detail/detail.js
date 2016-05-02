@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ContactDetail } from '../../components'
+import { ContactDetail } from 'components'
 
 class Detail extends React.Component {
   render () {

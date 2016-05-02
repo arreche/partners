@@ -13,6 +13,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  resolve:{
+    modulesDirectories: ['src', 'node_modules'],
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
