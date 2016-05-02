@@ -4,8 +4,8 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, hashHistory } from 'react-router'
 import { routerReducer } from 'react-router-redux'
-import { Main, Detail } from './containers'
-import * as reducers from './reducers'
+import { Main, Detail } from 'containers'
+import * as reducers from 'reducers'
 
 const reducer = combineReducers({
   ...reducers,

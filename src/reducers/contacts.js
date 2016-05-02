@@ -1,4 +1,4 @@
-import { FETCH_CONTACTS } from '../actions'
+import { FETCH_CONTACTS } from 'actions'
 
 const initialState = {
   contacts: []

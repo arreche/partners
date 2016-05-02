@@ -1,5 +1,5 @@
 import React from 'react'
-import { Search } from '../'
+import { Search } from 'components'
 import style from './style.css'
 
 const Toolbar = (props) => {

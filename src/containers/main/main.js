@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { hashHistory } from 'react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchContacts } from '../../actions'
-import { List } from '../../containers'
-import { Toolbar } from '../../components'
+import { fetchContacts } from 'actions'
+import { List } from 'containers'
+import { Toolbar } from 'components'
 import style from './style.css'
 
 class Main extends Component {

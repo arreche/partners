@@ -1,4 +1,4 @@
-import mockContacts from '../stores/mockContacts'
+import mockContacts from 'stores/mockContacts'
 
 export const FETCH_CONTACTS = 'FETCH_CONTACTS'
 export function fetchContacts () {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Contact } from '../'
+import { Contact } from 'components'
 import style from './style.css'
 
 const Contacts = (props) => {
