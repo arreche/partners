@@ -14,12 +14,12 @@ class Main extends Component {
   }
 
   render () {
-    const { contacts } = this.props
+    const { contacts, onSearch } = this.props
 
     return (
       <div className={style.main}>
         <div className={style.toolbar}>
-          <Toolbar onSearch={this.onSearch}
+          <Toolbar onSearch={onSearch}
             onEdit={this.onEdit}
             onNew={this.onNew} />
         </div>
@@ -40,7 +40,7 @@ class Main extends Component {
   }
 
   onSearch () {
-
+    console.log(this.props)
   }
 
   onEdit () {
