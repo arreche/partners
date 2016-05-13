@@ -14,7 +14,7 @@ class Main extends Component {
   }
 
   render () {
-    const { contacts } = this.props
+    const { children, contacts, contactsComponent } = this.props
 
     return (
       <div className={style.main}>
@@ -27,11 +27,12 @@ class Main extends Component {
         <div className={style.mainPanel}>
           <div className={style.navPanel}>
             <List contacts={contacts}
-              onSelect={this.onSelect} />
+              onSelect={this.onSelect}
+              conf={contactsComponent} />
           </div>
 
           <div className={style.contentPanel}>
-            {this.props.children}
+            {children}
           </div>
         </div>
 
@@ -60,17 +61,11 @@ class Main extends Component {
 Main.propTypes = {
   contacts: React.PropTypes.array.isRequired,
   children: React.PropTypes.object.isRequired,
+  contactsComponent: React.PropTypes.object,
   fetchContacts: React.PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    contacts: state.contacts.contacts
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return bindActionCreators({ fetchContacts }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(
+  state => ({ contacts: state.contacts.contacts, contactsComponent: state.contactsComponent }),
+  dispatch => bindActionCreators({ fetchContacts }, dispatch)
+)(Main)

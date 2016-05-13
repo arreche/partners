@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, hashHistory } from 'react-router'
+import thunk from 'redux-thunk'
 import { routerReducer } from 'react-router-redux'
 import { Main, Detail } from './containers'
 import * as reducers from './reducers'
@@ -13,7 +14,8 @@ const reducer = combineReducers({
 })
 
 const store = createStore(
-  reducer
+  reducer,
+  applyMiddleware(thunk)
 )
 
 ReactDOM.render(

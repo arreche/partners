@@ -3,12 +3,15 @@ import Contact from '../../components/contact/contact'
 import style from './style.css'
 
 const List = (props) => {
-  const contacts = props.contacts.map((contact, i) => {
+  const { contacts, conf } = props
+
+  const contactComponents = contacts.map((contact, i) => {
     return (
       <div className={style.row} key={i}>
         <Contact title={contact.name.first}
           image={contact.picture.thumbnail}
-          onSelect={onSelect(contact.id, props.onSelect)} />
+          onSelect={onSelect(contact.id, props.onSelect)}>
+        </Contact>
       </div>
     )
   })
@@ -21,13 +24,14 @@ const List = (props) => {
 
   return (
     <div className={style.contacts}>
-      {contacts}
+      {conf.loading ? <div>Loading...</div> : contactComponents}
     </div>
   )
 }
 
 List.propTypes = {
   contacts: React.PropTypes.array.isRequired,
+  loading: React.PropTypes.bool,
   onSelect: React.PropTypes.func.isRequired
 }
 
