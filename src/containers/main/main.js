@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-import { hashHistory } from 'react-router'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchContacts } from '../../actions'
-import { List } from '../../containers'
+
+import { ContactsContainer } from '../../containers'
 import { Toolbar } from '../../components'
 import style from './style.css'
 
 class Main extends Component {
 
-  componentDidMount () {
-    this.props.fetchContacts()
-  }
-
   render () {
-    const { children, contacts, contactsComponent } = this.props
+    const { children } = this.props
 
     return (
       <div className={style.main}>
@@ -26,9 +20,7 @@ class Main extends Component {
 
         <div className={style.mainPanel}>
           <div className={style.navPanel}>
-            <List contacts={contacts}
-              onSelect={this.onSelect}
-              conf={contactsComponent} />
+            <ContactsContainer />
           </div>
 
           <div className={style.contentPanel}>
@@ -48,10 +40,6 @@ class Main extends Component {
 
   }
 
-  onSelect (id) {
-    hashHistory.push('/contacts/' + id)
-  }
-
   onNew () {
 
   }
@@ -59,13 +47,9 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  contacts: React.PropTypes.array.isRequired,
-  children: React.PropTypes.object.isRequired,
-  contactsComponent: React.PropTypes.object,
-  fetchContacts: React.PropTypes.func.isRequired
+  children: React.PropTypes.object.isRequired
 }
 
 export default connect(
-  state => ({ contacts: state.contacts.contacts, contactsComponent: state.contactsComponent }),
-  dispatch => bindActionCreators({ fetchContacts }, dispatch)
+  state => ({ contacts: state.contacts.contacts })
 )(Main)
