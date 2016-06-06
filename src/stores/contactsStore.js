@@ -12,8 +12,11 @@ const contactsStore = {
 
   searchByName: function (name) {
     return contacts.filter((contact) => { return contact.name.first.indexOf(name) >= 0 })
-  }
+  },
 
+  updateContact: function (contact) {
+    return Promise.resolve(contacts)
+  },
 }
 
 export default contactsStore

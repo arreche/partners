@@ -16,3 +16,11 @@ export function searchByName(name) {
     contacts: contactsStore.searchByName(name) // TODO: Filter async from API
   };
 }
+
+export const UPDATE_CONTACT = 'UPDATE_CONTACT';
+export function updateContact(contact) {
+  return {
+    type: UPDATE_CONTACT,
+    contacts: contactsStore.updateContact(contact) // TODO: Update async from API
+  };
+}
