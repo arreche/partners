@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { hashHistory } from 'react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchContacts } from '../../actions'
+import { fetchContacts, searchByName } from '../../actions'
 import { List } from '../../containers'
 import { Toolbar } from '../../components'
 import style from './style.css'
@@ -14,12 +14,12 @@ class Main extends Component {
   }
 
   render () {
-    const { contacts } = this.props
+    const { contacts, searchByName } = this.props
 
     return (
       <div className={style.main}>
         <div className={style.toolbar}>
-          <Toolbar onSearch={this.onSearch}
+          <Toolbar onSearch={searchByName}
             onEdit={this.onEdit}
             onNew={this.onNew} />
         </div>
@@ -39,10 +39,6 @@ class Main extends Component {
     )
   }
 
-  onSearch () {
-
-  }
-
   onEdit () {
 
   }
@@ -60,7 +56,8 @@ class Main extends Component {
 Main.propTypes = {
   contacts: React.PropTypes.array.isRequired,
   children: React.PropTypes.object.isRequired,
-  fetchContacts: React.PropTypes.func.isRequired
+  fetchContacts: React.PropTypes.func.isRequired,
+  searchByName: React.PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -70,7 +67,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return bindActionCreators({ fetchContacts }, dispatch)
+  return bindActionCreators({ fetchContacts, searchByName }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)
