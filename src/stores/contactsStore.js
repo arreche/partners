@@ -3,11 +3,15 @@ import contacts from './mockContacts.js'
 const contactsStore = {
 
   loadContact: function (id) {
-    return Promise.resolve(contacts.find((contact) => contact.id === id))
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(contacts.find(contact => contact.id === id)), 600)
+    })
   },
 
   loadContacts: function () {
-    return Promise.resolve(contacts)
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(contacts), 600)
+    })
   },
 
   searchByName: function (name) {

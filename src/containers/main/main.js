@@ -1,20 +1,16 @@
 import React, { Component } from 'react'
-import { hashHistory } from 'react-router'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchContacts, searchByName } from '../../actions'
-import { List } from '../../containers'
+import { searchByName } from '../../actions'
+import { ContactsContainer } from '../../containers'
 import { Toolbar } from '../../components'
 import style from './style.css'
+import { bindActionCreators } from 'redux'
 
 class Main extends Component {
 
-  componentDidMount () {
-    this.props.fetchContacts()
-  }
-
   render () {
-    const { contacts, searchByName } = this.props
+    console.log(this.props)
+    const { children, searchByName } = this.props
 
     return (
       <div className={style.main}>
@@ -26,12 +22,11 @@ class Main extends Component {
 
         <div className={style.mainPanel}>
           <div className={style.navPanel}>
-            <List contacts={contacts}
-              onSelect={this.onSelect} />
+            <ContactsContainer />
           </div>
 
           <div className={style.contentPanel}>
-            {this.props.children}
+            {children}
           </div>
         </div>
 
@@ -43,10 +38,6 @@ class Main extends Component {
 
   }
 
-  onSelect (id) {
-    hashHistory.push('/contacts/' + id)
-  }
-
   onNew () {
 
   }
@@ -54,20 +45,12 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  contacts: React.PropTypes.array.isRequired,
-  children: React.PropTypes.object.isRequired,
-  fetchContacts: React.PropTypes.func.isRequired,
+  children: React.PropTypes.object,
   searchByName: React.PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    contacts: state.contacts.contacts
-  }
-}
-
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return bindActionCreators({ fetchContacts, searchByName }, dispatch)
+  return bindActionCreators({ searchByName }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(null, mapDispatchToProps)(Main)

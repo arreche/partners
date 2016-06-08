@@ -1,30 +1,25 @@
 import React from 'react'
 import { Contact } from '../'
-import style from './style.css'
 
 const Contacts = (props) => {
-  const handleClick = () => {
+  const { contacts, onClickContact } = props
 
+  const onClick = (contact) => {
+    return () => onClickContact(contact)
   }
 
-  const contacts = props.contacts.map((contact, i) => {
-    return (
-      <Contact title={contact.name.first}
-        image={contact.picture.thumbnail}
-        key={i}
-        onSelect={handleClick} />
-    )
-  })
-
-  return (
-    <div className={style.contacts}>
-      {contacts}
+  const contactComponents = contacts.map((contact) => (
+    <div onClick={onClick(contact)} key={contact.id}>
+      <Contact contact={contact} />
     </div>
-  )
+  ))
+
+  return <div>{contactComponents}</div>
 }
 
 Contacts.propTypes = {
-  contacts: React.PropTypes.array.isRequired
+  contacts: React.PropTypes.array.isRequired,
+  onClickContact: React.PropTypes.func
 }
 
 export default Contacts

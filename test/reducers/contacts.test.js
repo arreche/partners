@@ -1,21 +1,22 @@
-import { FETCH_CONTACTS } from '../../src/actions'
+import { FETCH_CONTACTS_SUCCESS } from '../../src/actions'
 import reducer from '../../src/reducers/contacts'
-import mockContacts from '../../src/stores/mockContacts'
 import expect from 'expect'
 
 describe('Contacts reducer', () => {
-  it('should return the initial state', () => {
-    expect(
-      reducer(undefined, {})
-    ).toEqual({
-      contacts: []
-    })
+  it('should return the initial state when there is not state', () => {
+    const expected = {contacts: []}
+    const state = reducer(undefined, { type: '' })
+
+    expect(state).toEqual(expected)
   })
-  it('fetches contacts', () => {
-    expect(
-      reducer({ contacts: mockContacts }, FETCH_CONTACTS)
-    ).toEqual({
-      contacts: mockContacts
-    })
+
+  it('should return state with contacts after fetching contacts', () => {
+    const contacts = [
+      {id: 1, name: 'contact1'},
+      {id: 2, name: 'contact2'}
+    ]
+
+    const state = reducer({contacts: []}, {type: FETCH_CONTACTS_SUCCESS, contacts})
+    expect(contacts).toEqual(state.contacts)
   })
 })
