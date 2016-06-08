@@ -1,3 +1,3 @@
 export Detail from './detail/detail'
-export List from './list/list'
+export ContactsContainer from './contactsContainer/contactsContainer'
 export Main from './main/main'

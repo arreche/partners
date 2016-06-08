@@ -2,20 +2,18 @@ import React from 'react'
 import style from './style.css'
 
 const Contact = (props) => {
-  const { title, image, onSelect } = props
+  const { contact } = props
 
   return (
-    <div className={style.contact} onClick={onSelect}>
-      <div className={style.title}>{title}</div>
-      <div className={style.thumb}><img src={image} /></div>
+    <div className={style.contact}>
+      <div className={style.title}>{contact.name.first}</div>
+      <div className={style.thumb}><img src={contact.picture.thumbnail} /></div>
     </div>
   )
 }
 
 Contact.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  image: React.PropTypes.string.isRequired,
-  onSelect: React.PropTypes.func.isRequired
+  contact: React.PropTypes.object
 }
 
 export default Contact

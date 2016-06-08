@@ -13,14 +13,6 @@ Detail.propTypes = {
   contact: React.PropTypes.object
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const contact = state.contacts.contacts.filter((contact) => {
-    return parseInt(contact.id) === parseInt(ownProps.params.id)
-  })
-  if (contact.length === 1) {
-    return { contact: contact[0] }
-  }
-  return state
-}
-
-export default connect(mapStateToProps)(Detail)
+export default connect(
+  (state, ownProps) => ({ contact: state.contacts.contacts.find((c) => c.id === parseInt(ownProps.params.id)) })
+)(Detail)

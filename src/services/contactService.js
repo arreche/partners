@@ -1,6 +1,6 @@
 import contacts from './mockContacts.js'
 
-const contactsStore = {
+const contactService = {
 
   loadContact: function (id) {
     return new Promise((resolve) => {
@@ -12,12 +12,8 @@ const contactsStore = {
     return new Promise((resolve) => {
       setTimeout(() => resolve(contacts), 600)
     })
-  },
-
-  searchByName: function (name) {
-    return contacts.filter((contact) => { return contact.name.first.indexOf(name) >= 0 })
   }
 
 }
 
-export default contactsStore
+export default contactService
