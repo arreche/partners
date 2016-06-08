@@ -9,8 +9,8 @@ const Contacts = (props) => {
   }
 
   const contactComponents = contacts.map((contact) => (
-    <div onClick={onClick(contact)}>
-      <Contact contact={contact} key={contact.id} />
+    <div onClick={onClick(contact)} key={contact.id}>
+      <Contact contact={contact} />
     </div>
   ))
 

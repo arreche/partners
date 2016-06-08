@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { searchByName } from '../../actions'
 import { ContactsContainer } from '../../containers'
 import { Toolbar } from '../../components'
 import style from './style.css'
+import { bindActionCreators } from 'redux'
 
 class Main extends Component {
 
   render () {
-    const { children } = this.props
+    console.log(this.props)
+    const { children, searchByName } = this.props
 
     return (
       <div className={style.main}>
         <div className={style.toolbar}>
-          <Toolbar onSearch={this.onSearch}
+          <Toolbar onSearch={searchByName}
             onEdit={this.onEdit}
             onNew={this.onNew} />
         </div>
@@ -32,10 +34,6 @@ class Main extends Component {
     )
   }
 
-  onSearch () {
-
-  }
-
   onEdit () {
 
   }
@@ -47,9 +45,12 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  children: React.PropTypes.object.isRequired
+  children: React.PropTypes.object,
+  searchByName: React.PropTypes.func.isRequired
 }
 
-export default connect(
-  state => ({ contacts: state.contacts.contacts })
-)(Main)
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({ searchByName }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Main)

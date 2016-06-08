@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, hashHistory } from 'react-router'
 import thunk from 'redux-thunk'
 import { routerReducer } from 'react-router-redux'
-import { Main, Detail } from './containers'
+import { Main, Detail, Search } from './containers'
 import * as reducers from './reducers'
 
 const reducer = combineReducers({
